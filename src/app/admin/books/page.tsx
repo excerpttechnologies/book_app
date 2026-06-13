@@ -70,7 +70,10 @@ export default function AdminBooksPage() {
   const removeImage = (idx: number) => setForm((f: any) => ({ ...f, images: f.images.filter((_: any, i: number) => i !== idx) }));
 
   const save = async () => {
-    if (!form.title || !form.price || !form.category) { toast.error('Fill required fields'); return; }
+    if (!form.title || !form.price || !form.category || !form.description) { 
+  toast.error('Fill required fields (Title, Price, Category, Description)'); 
+  return; 
+}
     setSaving(true);
     const payload = { ...form, tags: form.tags ? form.tags.split(',').map((t: string) => t.trim()) : [], price: parseFloat(form.price), originalPrice: form.originalPrice ? parseFloat(form.originalPrice) : undefined, stock: parseInt(form.stock) || 0, pages: form.pages ? parseInt(form.pages) : undefined, publicationYear: form.publicationYear ? parseInt(form.publicationYear) : undefined, shippingCharge: form.shippingCharge ? parseFloat(form.shippingCharge) : undefined };
 

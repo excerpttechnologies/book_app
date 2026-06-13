@@ -38,7 +38,7 @@ const BookSchema = new Schema<IBook>(
   {
     title: { type: String, required: true },
     author: { type: String, required: true },
-    description: { type: String, required: true },
+    description: { type: String, default: '' },
     shortDescription: String,
     isbn: String,
     publisher: String,
