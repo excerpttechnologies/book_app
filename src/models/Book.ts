@@ -89,7 +89,7 @@ BookSchema.index(
     tags: 'text',
   },
   {
-    language_override: 'bookLanguage',
+    language_override: 'none',
   }
 );
 
