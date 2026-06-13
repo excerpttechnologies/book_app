@@ -59,7 +59,7 @@ export default function BookDetailPage() {
             <div style={{ display: 'flex', gap: 8 }}>
               {book.images.map((img: string, i: number) => (
                 <button key={i} onClick={() => setSelectedImage(i)}
-                  style={{ width: 70, aspectRatio: '3/4', borderRadius: 8, overflow: 'hidden', border: `2px solid ${selectedImage === i ? '#1F3A52' : 'var(--border)'}`, cursor: 'pointer', padding: 0 }}>
+                  style={{ width: 70, aspectRatio: '3/4', borderRadius: 8, overflow: 'hidden', border: `2px solid ${selectedImage === i ? 'var(--accent)' : 'var(--border)'}`, cursor: 'pointer', padding: 0 }}>
                   <img src={img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={e => { (e.target as HTMLImageElement).src = 'https://placehold.co/70x93/f5efe6/b5451b?text='; }} />
                 </button>
               ))}
@@ -80,12 +80,12 @@ export default function BookDetailPage() {
 
           {/* Rating */}
           {book.rating > 0 && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, padding: '8px 12px', background: 'var(--gold-light)', borderRadius: 8 }}>
-              {[...Array(5)].map((_, i) => <FiStar key={i} size={14} fill={i < Math.round(book.rating) ? 'var(--gold)' : 'none'} color="var(--gold)" />)}
-              <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--gold)' }}>{book.rating.toFixed(1)}</span>
-              <span style={{ fontSize: 13, color: 'var(--text-muted)' }}>({book.reviewCount} reviews)</span>
-            </div>
-          )}
+  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 16, padding: '8px 12px', background: 'var(--gold-light)', borderRadius: 8 }}>
+    {[...Array(5)].map((_, i) => <FiStar key={i} size={14} fill={i < Math.round(book.rating) ? 'var(--gold)' : 'none'} color="var(--gold)" />)}
+    <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--gold)' }}>{book.rating.toFixed(1)}</span>
+    <span style={{ fontSize: 13, color: 'var(--text-muted)' }}>({book.reviewCount} reviews)</span>
+  </div>
+)}
 
           {/* Price */}
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 20 }}>
@@ -95,7 +95,7 @@ export default function BookDetailPage() {
           </div>
 
           {/* Stock */}
-          <p style={{ fontSize: 14, marginBottom: 16, color: book.stock > 0 ? 'var(--green)' : '#1F3A52' }}>
+          <p style={{ fontSize: 14, marginBottom: 16, color: book.stock > 0 ? 'var(--green)' : 'var(--accent)' }}>
             {book.stock > 0 ? `✓ In Stock (${book.stock} available)` : '✗ Out of Stock'}
           </p>
 
@@ -133,7 +133,7 @@ export default function BookDetailPage() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px 20px' }}>
               {[
                 ['Publisher', book.publisher],
-                ['Language', book.language],
+                ['Language', book.bookLanguage],
                 ['Pages', book.pages],
                 ['ISBN', book.isbn],
                 ['Year', book.publicationYear],

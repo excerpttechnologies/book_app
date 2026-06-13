@@ -30,13 +30,13 @@ export default function ContactPage() {
         <div>
           <h2 style={{ fontSize: '1.2rem', marginBottom: 20 }}>Get in Touch</h2>
           {[
-            { icon: FiPhone, label: 'Phone', value: '+91 7871721995', href: 'tel:+91 7871721995' },
-            { icon: FiMail, label: 'Email', value: 'support@OMSpiritual.com', href: 'mailto:support@OMSpiritual.com' },
+            { icon: FiPhone, label: 'Phone', value: '+91-XXXXXXXXXX', href: 'tel:+91XXXXXXXXXX' },
+            { icon: FiMail, label: 'Email', value: 'support@saraswatibooks.com', href: 'mailto:support@saraswatibooks.com' },
             { icon: FiMapPin, label: 'Address', value: 'Chennai, Tamil Nadu, India', href: '#' },
           ].map(({ icon: Icon, label, value, href }) => (
             <a key={label} href={href} style={{ display: 'flex', alignItems: 'flex-start', gap: 14, marginBottom: 20, padding: 16, background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 10, color: 'var(--text-primary)' }}>
               <div style={{ width: 40, height: 40, borderRadius: 10, background: 'var(--accent-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <Icon size={18} color="#1F3A52" />
+                <Icon size={18} color="var(--accent)" />
               </div>
               <div>
                 <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 2 }}>{label}</div>

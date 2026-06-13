@@ -85,7 +85,7 @@ export default function AdminReportsPage() {
                 <XAxis dataKey="month" tick={{ fontSize: 10, fill: 'var(--text-muted)' }} />
                 <YAxis tick={{ fontSize: 10, fill: 'var(--text-muted)' }} />
                 <Tooltip contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12 }} />
-                <Bar dataKey="revenue" fill="#1F3A52" radius={[3,3,0,0]} />
+                <Bar dataKey="revenue" fill="var(--accent)" radius={[3,3,0,0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>

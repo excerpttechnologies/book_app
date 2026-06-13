@@ -87,7 +87,7 @@ export default function CartPage() {
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                     <span style={{ fontSize: '1rem', fontWeight: 700 }}>₹{(item.book?.price * item.quantity).toFixed(2)}</span>
-                    <button onClick={() => remove(item.bookId)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#1F3A52', padding: 4 }}>
+                    <button onClick={() => remove(item.bookId)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--accent)', padding: 4 }}>
                       <FiTrash2 size={16} />
                     </button>
                   </div>

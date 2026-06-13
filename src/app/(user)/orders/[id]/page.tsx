@@ -32,7 +32,7 @@ export default function OrderDetailPage() {
       doc.rect(0, 0, 210, 30, 'F');
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(18);
-      doc.text(s.invoiceName || 'OM Spiritual', 14, 18);
+      doc.text(s.invoiceName || 'Saraswati Books', 14, 18);
       doc.setTextColor(0, 0, 0);
       doc.setFontSize(10);
       doc.text(`Invoice: ${order.orderId}`, 14, 42);
@@ -87,13 +87,13 @@ export default function OrderDetailPage() {
         <div className="card" style={{ padding: 24, marginBottom: 20 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative' }}>
             <div style={{ position: 'absolute', top: 18, left: '10%', right: '10%', height: 2, background: 'var(--border)' }} />
-            <div style={{ position: 'absolute', top: 18, left: '10%', height: 2, background: '#1F3A52', width: `${Math.max(0, currentStep) * 25}%`, transition: 'width 0.5s' }} />
+            <div style={{ position: 'absolute', top: 18, left: '10%', height: 2, background: 'var(--accent)', width: `${Math.max(0, currentStep) * 25}%`, transition: 'width 0.5s' }} />
             {STATUS_STEPS.map((step, i) => (
               <div key={step} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, position: 'relative', zIndex: 1 }}>
-                <div style={{ width: 36, height: 36, borderRadius: '50%', background: i <= currentStep ? '#1F3A52' : 'var(--bg-secondary)', border: `2px solid ${i <= currentStep ? '#1F3A52' : 'var(--border)'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: i <= currentStep ? '#fff' : 'var(--text-muted)', transition: 'all 0.3s' }}>
+                <div style={{ width: 36, height: 36, borderRadius: '50%', background: i <= currentStep ? 'var(--accent)' : 'var(--bg-secondary)', border: `2px solid ${i <= currentStep ? 'var(--accent)' : 'var(--border)'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: i <= currentStep ? '#fff' : 'var(--text-muted)', transition: 'all 0.3s' }}>
                   <FiPackage size={14} />
                 </div>
-                <span style={{ fontSize: 11, fontWeight: i <= currentStep ? 600 : 400, color: i <= currentStep ? '#1F3A52' : 'var(--text-muted)', textTransform: 'capitalize' }}>{step}</span>
+                <span style={{ fontSize: 11, fontWeight: i <= currentStep ? 600 : 400, color: i <= currentStep ? 'var(--accent)' : 'var(--text-muted)', textTransform: 'capitalize' }}>{step}</span>
               </div>
             ))}
           </div>
@@ -126,7 +126,7 @@ export default function OrderDetailPage() {
               <h2 style={{ fontSize: '1rem', fontFamily: 'var(--font-body)', fontWeight: 600, marginBottom: 14 }}>Status History</h2>
               {order.statusHistory.map((h: any, i: number) => (
                 <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 10 }}>
-                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#1F3A52', marginTop: 5, flexShrink: 0 }} />
+                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)', marginTop: 5, flexShrink: 0 }} />
                   <div>
                     <div style={{ fontWeight: 500, fontSize: 13, textTransform: 'capitalize' }}>{h.status}</div>
                     {h.note && <div style={{ fontSize: 12, color: 'var(--text-secondary)' }}>{h.note}</div>}

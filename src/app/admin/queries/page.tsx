@@ -100,7 +100,7 @@ export default function AdminQueriesPage() {
               </div>
               {selected.adminReply && (
                 <div style={{ background: 'var(--accent-light)', borderRadius: 10, padding: 14 }}>
-                  <div style={{ fontSize: 12, color: '#1F3A52', fontWeight: 600, marginBottom: 6 }}>Previous Reply:</div>
+                  <div style={{ fontSize: 12, color: 'var(--accent)', fontWeight: 600, marginBottom: 6 }}>Previous Reply:</div>
                   <p style={{ fontSize: 14, color: 'var(--text-secondary)' }}>{selected.adminReply}</p>
                 </div>
               )}

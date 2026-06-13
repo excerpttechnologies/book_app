@@ -153,7 +153,7 @@ export default function AdminSettingsPage() {
           <div key={idx} style={{ background: 'var(--bg-secondary)', borderRadius: 10, padding: 16, marginBottom: 12 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
               <span style={{ fontSize: 13, fontWeight: 600 }}>Slide {idx + 1}</span>
-              <button onClick={() => removeSlider(idx)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#1F3A52', padding: 4 }}><FiX size={15} /></button>
+              <button onClick={() => removeSlider(idx)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--accent)', padding: 4 }}><FiX size={15} /></button>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
               <div>

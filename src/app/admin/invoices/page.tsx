@@ -58,7 +58,7 @@ export default function AdminInvoicesPage() {
       doc.rect(0, 0, 210, 35, 'F');
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(20);
-      doc.text(s.invoiceName || 'OM Spiritual', 14, 18);
+      doc.text(s.invoiceName || 'Saraswati Books', 14, 18);
       doc.setFontSize(10);
       doc.text('INVOICE', 170, 18);
       doc.setTextColor(0, 0, 0);
@@ -238,7 +238,7 @@ export default function AdminInvoicesPage() {
         {total > 20 && (
           <div style={{ padding: '14px 16px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'center', gap: 8 }}>
             {[...Array(Math.ceil(total / 20))].map((_, i) => (
-              <button key={i} onClick={() => setPage(i + 1)} style={{ width: 32, height: 32, borderRadius: 6, border: '1px solid', borderColor: page === i+1 ? '#1F3A52' : 'var(--border)', background: page === i+1 ? '#1F3A52' : 'var(--surface)', color: page === i+1 ? '#fff' : 'var(--text-primary)', cursor: 'pointer', fontSize: 13 }}>{i + 1}</button>
+              <button key={i} onClick={() => setPage(i + 1)} style={{ width: 32, height: 32, borderRadius: 6, border: '1px solid', borderColor: page === i+1 ? 'var(--accent)' : 'var(--border)', background: page === i+1 ? 'var(--accent)' : 'var(--surface)', color: page === i+1 ? '#fff' : 'var(--text-primary)', cursor: 'pointer', fontSize: 13 }}>{i + 1}</button>
             ))}
           </div>
         )}

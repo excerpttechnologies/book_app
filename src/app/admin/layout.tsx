@@ -52,42 +52,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
         {/* Logo */}
         <div style={{ padding: '20px 20px 16px', borderBottom: '1px solid var(--border)' }}>
-          <Link
-            href="/admin/dashboard"
-            style={{ display: "flex", alignItems: "center", gap: 10 }}
-          >
-            <img
-              src="/uploads/logo/OM.png"
-              alt="OM Spiritual"
-              style={{
-                width: "40px",
-                height: "40px",
-                objectFit: "contain",
-              }}
-            />
-
+          <Link href="/admin/dashboard" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <span style={{ fontSize: '1.4rem' }}>📖</span>
             <div>
-              <div
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 700,
-                  fontSize: "1rem",
-                  color: "#1F3A52",
-                }}
-              >
-                OM Spiritual
-              </div>
-
-              <div
-                style={{
-                  fontSize: 11,
-                  color: "var(--text-muted)",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Admin Panel
-              </div>
+              <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem', color: 'var(--accent)' }}>Saraswati</div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Admin Panel</div>
             </div>
           </Link>
         </div>
@@ -98,7 +67,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             const active = pathname === href || pathname.startsWith(href + '/');
             return (
               <Link key={href} href={href} onClick={() => setSidebarOpen(false)}
-                style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 14px', borderRadius: 10, marginBottom: 2, color: active ? '#1F3A52' : 'var(--text-secondary)', background: active ? 'var(--accent-light)' : 'transparent', fontWeight: active ? 600 : 400, fontSize: 14, transition: 'all 0.15s' }}
+                style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 14px', borderRadius: 10, marginBottom: 2, color: active ? 'var(--accent)' : 'var(--text-secondary)', background: active ? 'var(--accent-light)' : 'transparent', fontWeight: active ? 600 : 400, fontSize: 14, transition: 'all 0.15s' }}
                 onMouseEnter={e => { if (!active) (e.currentTarget.style.background = 'var(--bg-secondary)'); }}
                 onMouseLeave={e => { if (!active) (e.currentTarget.style.background = 'transparent'); }}>
                 <Icon size={17} />
@@ -113,7 +82,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             {session.user?.image
               ? <img src={session.user.image} alt="" style={{ width: 34, height: 34, borderRadius: '50%' }} />
-              : <div style={{ width: 34, height: 34, borderRadius: '50%', background: 'var(--accent-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1F3A52', fontWeight: 700 }}>{session.user?.name?.[0]}</div>}
+              : <div style={{ width: 34, height: 34, borderRadius: '50%', background: 'var(--accent-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', fontWeight: 700 }}>{session.user?.name?.[0]}</div>}
             <div style={{ flex: 1, overflow: 'hidden' }}>
               <div style={{ fontSize: 13, fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{session.user?.name}</div>
               <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Administrator</div>

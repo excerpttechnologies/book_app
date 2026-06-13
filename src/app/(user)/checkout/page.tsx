@@ -63,7 +63,7 @@ export default function CheckoutPage() {
           key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
           amount: rpOrder.amount,
           currency: 'INR',
-          name: 'OM Spiritual',
+          name: 'Saraswati Books',
           description: 'Book Purchase',
           order_id: rpOrder.id,
           prefill: { name: `${address.firstName} ${address.lastName}`, email: address.email, contact: address.phone },
@@ -160,9 +160,9 @@ export default function CheckoutPage() {
           <div className="card" style={{ padding: 24 }}>
             <h2 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-body)', fontWeight: 600, marginBottom: 16 }}>Payment Method</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 14, border: `2px solid ${payMethod === 'razorpay' ? '#1F3A52' : 'var(--border)'}`, borderRadius: 10, cursor: 'pointer', background: payMethod === 'razorpay' ? 'var(--accent-light)' : 'var(--surface)' }}>
-                <input type="radio" checked={payMethod === 'razorpay'} onChange={() => setPayMethod('razorpay')} style={{ width: 16, height: 16, accentColor: '#1F3A52' }} />
-                <FiCreditCard size={18} color="#1F3A52" />
+              <label style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 14, border: `2px solid ${payMethod === 'razorpay' ? 'var(--accent)' : 'var(--border)'}`, borderRadius: 10, cursor: 'pointer', background: payMethod === 'razorpay' ? 'var(--accent-light)' : 'var(--surface)' }}>
+                <input type="radio" checked={payMethod === 'razorpay'} onChange={() => setPayMethod('razorpay')} style={{ width: 16, height: 16, accentColor: 'var(--accent)' }} />
+                <FiCreditCard size={18} color="var(--accent)" />
                 <div>
                   <div style={{ fontWeight: 600, fontSize: 14 }}>Pay Now (Razorpay)</div>
                   <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>UPI, Cards, Net Banking, Wallet</div>

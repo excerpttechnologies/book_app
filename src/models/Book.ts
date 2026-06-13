@@ -9,7 +9,7 @@ export interface IBook extends Document {
   publisher?: string;
   publicationYear?: number;
   pages?: number;
-  language: string;
+  bookLanguage: string;
   category: string;
   subCategory?: string;
   tags: string[];
@@ -44,7 +44,11 @@ const BookSchema = new Schema<IBook>(
     publisher: String,
     publicationYear: Number,
     pages: Number,
-    language: { type: String, required: true, enum: ['Tamil', 'Telugu', 'English', 'Hindi', 'Sanskrit', 'Other'] },
+    bookLanguage: {
+      type: String,
+      required: true,
+      enum: ['Tamil', 'Telugu', 'English', 'Hindi', 'Sanskrit', 'Other'],
+    },
     category: {
       type: String,
       required: true,
@@ -77,6 +81,16 @@ const BookSchema = new Schema<IBook>(
   { timestamps: true }
 );
 
-BookSchema.index({ title: 'text', author: 'text', description: 'text', tags: 'text' });
+BookSchema.index(
+  {
+    title: 'text',
+    author: 'text',
+    description: 'text',
+    tags: 'text',
+  },
+  {
+    language_override: 'bookLanguage',
+  }
+);
 
 export default mongoose.models.Book || mongoose.model<IBook>('Book', BookSchema);

@@ -66,7 +66,7 @@ export default function ProfilePage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 24 }}>
           {user.image
             ? <img src={user.image} alt="" style={{ width: 72, height: 72, borderRadius: '50%', objectFit: 'cover', border: '3px solid var(--accent-light)' }} />
-            : <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'var(--accent-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1F3A52', fontSize: '1.8rem', fontWeight: 700 }}>{user.name?.[0]}</div>}
+            : <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'var(--accent-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', fontSize: '1.8rem', fontWeight: 700 }}>{user.name?.[0]}</div>}
           <div>
             <h2 style={{ marginBottom: 4, fontSize: '1.2rem' }}>{user.name}</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: 14 }}>{user.email}</p>
@@ -94,7 +94,7 @@ export default function ProfilePage() {
               { icon: FiPhone, label: 'Phone', value: user.phone || 'Not set' },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, padding: '12px 16px', background: 'var(--bg-secondary)', borderRadius: 10 }}>
-                <Icon size={16} color="#1F3A52" style={{ marginTop: 2 }} />
+                <Icon size={16} color="var(--accent)" style={{ marginTop: 2 }} />
                 <div>
                   <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 2 }}>{label}</div>
                   <div style={{ fontSize: 14, fontWeight: 500 }}>{value}</div>
@@ -143,9 +143,9 @@ export default function ProfilePage() {
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {user.addresses?.map((addr: any, idx: number) => (
-              <div key={idx} style={{ border: `1.5px solid ${addr.isDefault ? '#1F3A52' : 'var(--border)'}`, borderRadius: 10, padding: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div key={idx} style={{ border: `1.5px solid ${addr.isDefault ? 'var(--accent)' : 'var(--border)'}`, borderRadius: 10, padding: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                  <FiMapPin size={16} color="#1F3A52" style={{ marginTop: 2 }} />
+                  <FiMapPin size={16} color="var(--accent)" style={{ marginTop: 2 }} />
                   <div>
                     <div style={{ fontWeight: 600, fontSize: 14 }}>{addr.firstName} {addr.lastName}</div>
                     <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 2, lineHeight: 1.6 }}>
@@ -156,7 +156,7 @@ export default function ProfilePage() {
                     {addr.isDefault && <span className="badge badge-green" style={{ marginTop: 6 }}>Default</span>}
                   </div>
                 </div>
-                <button onClick={() => removeAddress(idx)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#1F3A52', padding: 4 }}>
+                <button onClick={() => removeAddress(idx)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--accent)', padding: 4 }}>
                   <FiTrash2 size={15} />
                 </button>
               </div>
@@ -166,7 +166,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Sign Out */}
-      <button onClick={() => signOut({ callbackUrl: '/' })} className="btn-secondary" style={{ color: '#1F3A52', borderColor: '#1F3A52' }}>
+      <button onClick={() => signOut({ callbackUrl: '/' })} className="btn-secondary" style={{ color: 'var(--accent)', borderColor: 'var(--accent)' }}>
         <FiLogOut size={15} /> Sign Out
       </button>
     </div>

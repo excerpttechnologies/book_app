@@ -8,7 +8,7 @@ const LANGUAGES = ['Tamil', 'Telugu', 'English', 'Hindi', 'Sanskrit', 'Other'];
 
 const emptyBook = {
   title: '', author: '', description: '', shortDescription: '', isbn: '', publisher: '',
-  publicationYear: '', pages: '', language: 'Tamil', category: 'Books', subCategory: '',
+  publicationYear: '', pages: '', bookLanguage: 'Tamil', category: 'Books', subCategory: '',
   tags: '', price: '', originalPrice: '', stock: '', sku: '', weight: '',
   shippingCharge: '', expressShipping: false, status: 'draft',
   featured: false, bestSeller: false, newArrival: false, images: [] as string[],
@@ -40,11 +40,18 @@ export default function AdminBooksPage() {
   useEffect(() => { fetchBooks(); }, [page, search, filterStatus]);
 
   const openCreate = () => { setForm(emptyBook); setEditBook(null); setShowModal(true); };
-  const openEdit = (book: any) => {
-    setEditBook(book);
-    setForm({ ...emptyBook, ...book, tags: book.tags?.join(', ') || '', publicationYear: book.publicationYear || '', pages: book.pages || '' });
-    setShowModal(true);
-  };
+ const openEdit = (book: any) => {
+  setEditBook(book);
+  setForm({ 
+    ...emptyBook, 
+    ...book,
+    bookLanguage: book.bookLanguage || book.language || 'Tamil', // ← handles both old and new docs
+    tags: book.tags?.join(', ') || '', 
+    publicationYear: book.publicationYear || '', 
+    pages: book.pages || '' 
+  });
+  setShowModal(true);
+};
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -142,7 +149,7 @@ export default function AdminBooksPage() {
                     </div>
                   </td>
                   <td style={{ fontSize: 13 }}>{book.category}</td>
-                  <td style={{ fontSize: 13 }}>{book.language}</td>
+                  <td style={{ fontSize: 13 }}>{book.bookLanguage}</td>
                   <td style={{ fontWeight: 600, fontSize: 14 }}>₹{book.price}</td>
                   <td>
                     <span className={`badge ${book.stock > 0 ? 'badge-green' : 'badge-red'}`}>{book.stock}</span>
@@ -158,7 +165,7 @@ export default function AdminBooksPage() {
                   <td>
                     <div style={{ display: 'flex', gap: 6 }}>
                       <button onClick={() => openEdit(book)} style={{ background: 'var(--bg-secondary)', border: 'none', borderRadius: 8, padding: '6px 8px', cursor: 'pointer', color: 'var(--text-secondary)' }}><FiEdit2 size={14} /></button>
-                      <button onClick={() => deleteBook(book._id)} style={{ background: 'var(--accent-light)', border: 'none', borderRadius: 8, padding: '6px 8px', cursor: 'pointer', color: '#1F3A52' }}><FiTrash2 size={14} /></button>
+                      <button onClick={() => deleteBook(book._id)} style={{ background: 'var(--accent-light)', border: 'none', borderRadius: 8, padding: '6px 8px', cursor: 'pointer', color: 'var(--accent)' }}><FiTrash2 size={14} /></button>
                     </div>
                   </td>
                 </tr>
@@ -169,7 +176,7 @@ export default function AdminBooksPage() {
         {total > 20 && (
           <div style={{ padding: '14px 16px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'center', gap: 8 }}>
             {[...Array(Math.ceil(total / 20))].map((_, i) => (
-              <button key={i} onClick={() => setPage(i + 1)} style={{ width: 32, height: 32, borderRadius: 6, border: '1px solid', borderColor: page === i+1 ? '#1F3A52' : 'var(--border)', background: page === i+1 ? '#1F3A52' : 'var(--surface)', color: page === i+1 ? '#fff' : 'var(--text-primary)', cursor: 'pointer', fontSize: 13 }}>{i + 1}</button>
+              <button key={i} onClick={() => setPage(i + 1)} style={{ width: 32, height: 32, borderRadius: 6, border: '1px solid', borderColor: page === i+1 ? 'var(--accent)' : 'var(--border)', background: page === i+1 ? 'var(--accent)' : 'var(--surface)', color: page === i+1 ? '#fff' : 'var(--text-primary)', cursor: 'pointer', fontSize: 13 }}>{i + 1}</button>
             ))}
           </div>
         )}
@@ -192,7 +199,7 @@ export default function AdminBooksPage() {
                   {form.images?.map((url: string, i: number) => (
                     <div key={i} style={{ position: 'relative' }}>
                       <img src={url} alt="" style={{ width: 70, height: 93, objectFit: 'cover', borderRadius: 8, border: '1px solid var(--border)' }} />
-                      <button onClick={() => removeImage(i)} style={{ position: 'absolute', top: -6, right: -6, background: '#1F3A52', border: 'none', borderRadius: '50%', width: 20, height: 20, cursor: 'pointer', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><FiX size={11} /></button>
+                      <button onClick={() => removeImage(i)} style={{ position: 'absolute', top: -6, right: -6, background: 'var(--accent)', border: 'none', borderRadius: '50%', width: 20, height: 20, cursor: 'pointer', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><FiX size={11} /></button>
                     </div>
                   ))}
                   {(!form.images || form.images.length < 2) && (
@@ -233,7 +240,7 @@ export default function AdminBooksPage() {
 
                 <div>
                   <label className="label">Language *</label>
-                  <select className="input" value={form.language} onChange={e => setForm((f: any) => ({ ...f, language: e.target.value }))}>
+                  <select className="input" value={form.bookLanguage} onChange={e => setForm((f: any) => ({ ...f, bookLanguage: e.target.value }))}>
                     {LANGUAGES.map(l => <option key={l}>{l}</option>)}
                   </select>
                 </div>
@@ -260,7 +267,7 @@ export default function AdminBooksPage() {
                 <div style={{ gridColumn: '1/-1', display: 'flex', gap: 20, flexWrap: 'wrap' }}>
                   {[['featured', 'Featured'], ['bestSeller', 'Best Seller'], ['newArrival', 'New Arrival'], ['expressShipping', 'Express Shipping']].map(([key, label]) => (
                     <label key={key} style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', fontSize: 14 }}>
-                      <input type="checkbox" checked={!!form[key]} onChange={e => setForm((f: any) => ({ ...f, [key]: e.target.checked }))} style={{ width: 16, height: 16, accentColor: '#1F3A52' }} />
+                      <input type="checkbox" checked={!!form[key]} onChange={e => setForm((f: any) => ({ ...f, [key]: e.target.checked }))} style={{ width: 16, height: 16, accentColor: 'var(--accent)' }} />
                       {label}
                     </label>
                   ))}

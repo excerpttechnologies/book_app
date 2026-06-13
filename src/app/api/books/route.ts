@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
     const query: Record<string, unknown> = {};
 
     if (category) query.category = category;
-    if (language) query.language = language;
+    if (language) query.bookLanguage = language;
     if (featured === 'true') query.featured = true;
     if (bestSeller === 'true') query.bestSeller = true;
     if (minPrice || maxPrice) {

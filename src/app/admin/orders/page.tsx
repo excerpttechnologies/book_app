@@ -142,7 +142,7 @@ export default function AdminOrdersPage() {
         {total > 20 && (
           <div style={{ padding: '14px 16px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'center', gap: 8 }}>
             {[...Array(Math.ceil(total / 20))].map((_, i) => (
-              <button key={i} onClick={() => setPage(i+1)} style={{ width: 32, height: 32, borderRadius: 6, border: '1px solid', borderColor: page===i+1 ? '#1F3A52' : 'var(--border)', background: page===i+1 ? '#1F3A52' : 'var(--surface)', color: page===i+1 ? '#fff' : 'var(--text-primary)', cursor: 'pointer', fontSize: 13 }}>{i+1}</button>
+              <button key={i} onClick={() => setPage(i+1)} style={{ width: 32, height: 32, borderRadius: 6, border: '1px solid', borderColor: page===i+1 ? 'var(--accent)' : 'var(--border)', background: page===i+1 ? 'var(--accent)' : 'var(--surface)', color: page===i+1 ? '#fff' : 'var(--text-primary)', cursor: 'pointer', fontSize: 13 }}>{i+1}</button>
             ))}
           </div>
         )}
@@ -206,7 +206,7 @@ export default function AdminOrdersPage() {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'flex-end', paddingBottom: 2 }}>
                   <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', fontSize: 14 }}>
-                    <input type="checkbox" checked={editInvoice} onChange={e => setEditInvoice(e.target.checked)} style={{ width: 16, height: 16, accentColor: '#1F3A52' }} />
+                    <input type="checkbox" checked={editInvoice} onChange={e => setEditInvoice(e.target.checked)} style={{ width: 16, height: 16, accentColor: 'var(--accent)' }} />
                     Enable Invoice Download
                   </label>
                 </div>

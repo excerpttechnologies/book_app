@@ -81,7 +81,7 @@ export default function AdminAdsPage() {
                   <button onClick={() => openEdit(ad)} className="btn-secondary" style={{ flex: 1, justifyContent: 'center', padding: '7px', fontSize: 13 }}>
                     <FiEdit2 size={13} /> Edit
                   </button>
-                  <button onClick={() => deleteAd(ad._id)} style={{ padding: '7px 10px', background: 'var(--accent-light)', border: 'none', borderRadius: 8, cursor: 'pointer', color: '#1F3A52' }}>
+                  <button onClick={() => deleteAd(ad._id)} style={{ padding: '7px 10px', background: 'var(--accent-light)', border: 'none', borderRadius: 8, cursor: 'pointer', color: 'var(--accent)' }}>
                     <FiTrash2 size={13} />
                   </button>
                 </div>
@@ -104,7 +104,7 @@ export default function AdminAdsPage() {
                 {form.image
                   ? <div style={{ position: 'relative', display: 'inline-block' }}>
                       <img src={form.image} alt="" style={{ width: 160, height: 100, objectFit: 'cover', borderRadius: 8 }} />
-                      <button onClick={() => setForm((f: any) => ({ ...f, image: '' }))} style={{ position: 'absolute', top: -8, right: -8, background: '#1F3A52', border: 'none', borderRadius: '50%', width: 22, height: 22, cursor: 'pointer', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><FiX size={12} /></button>
+                      <button onClick={() => setForm((f: any) => ({ ...f, image: '' }))} style={{ position: 'absolute', top: -8, right: -8, background: 'var(--accent)', border: 'none', borderRadius: '50%', width: 22, height: 22, cursor: 'pointer', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><FiX size={12} /></button>
                     </div>
                   : <label style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', border: '2px dashed var(--border)', borderRadius: 8, cursor: 'pointer', fontSize: 13, color: 'var(--text-muted)', width: 'fit-content' }}>
                       {uploading ? <div className="spinner" style={{ width: 16, height: 16 }} /> : <FiUpload size={16} />} Upload Image
@@ -149,7 +149,7 @@ export default function AdminAdsPage() {
                   </div>
                 </div>
                 <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', fontSize: 14 }}>
-                  <input type="checkbox" checked={form.isSkippable} onChange={e => setForm((f: any) => ({ ...f, isSkippable: e.target.checked }))} style={{ width: 16, height: 16, accentColor: '#1F3A52' }} />
+                  <input type="checkbox" checked={form.isSkippable} onChange={e => setForm((f: any) => ({ ...f, isSkippable: e.target.checked }))} style={{ width: 16, height: 16, accentColor: 'var(--accent)' }} />
                   Skippable by user
                 </label>
               </div>

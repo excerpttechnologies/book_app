@@ -71,7 +71,7 @@ export default function AdminTestimonialsPage() {
               </div>
               <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 12, lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>"{t.review}"</p>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
-                {t.image ? <img src={t.image} alt="" style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} /> : <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--accent-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1F3A52', fontWeight: 600 }}>{t.name[0]}</div>}
+                {t.image ? <img src={t.image} alt="" style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} /> : <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--accent-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', fontWeight: 600 }}>{t.name[0]}</div>}
                 <div>
                   <div style={{ fontWeight: 600, fontSize: 13 }}>{t.name}</div>
                   {t.designation && <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>{t.designation}</div>}
@@ -80,7 +80,7 @@ export default function AdminTestimonialsPage() {
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
                 <button onClick={() => openEdit(t)} className="btn-secondary" style={{ flex: 1, justifyContent: 'center', padding: '7px', fontSize: 13 }}><FiEdit2 size={13} /> Edit</button>
-                <button onClick={() => deleteItem(t._id)} style={{ padding: '7px 10px', background: 'var(--accent-light)', border: 'none', borderRadius: 8, cursor: 'pointer', color: '#1F3A52' }}><FiTrash2 size={13} /></button>
+                <button onClick={() => deleteItem(t._id)} style={{ padding: '7px 10px', background: 'var(--accent-light)', border: 'none', borderRadius: 8, cursor: 'pointer', color: 'var(--accent)' }}><FiTrash2 size={13} /></button>
               </div>
             </div>
           ))}
@@ -130,7 +130,7 @@ export default function AdminTestimonialsPage() {
                 </div>
               </div>
               <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', fontSize: 14 }}>
-                <input type="checkbox" checked={form.featured} onChange={e => setForm((f: any) => ({ ...f, featured: e.target.checked }))} style={{ width: 16, height: 16, accentColor: '#1F3A52' }} />
+                <input type="checkbox" checked={form.featured} onChange={e => setForm((f: any) => ({ ...f, featured: e.target.checked }))} style={{ width: 16, height: 16, accentColor: 'var(--accent)' }} />
                 Featured testimonial
               </label>
             </div>

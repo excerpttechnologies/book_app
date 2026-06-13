@@ -4,7 +4,7 @@ import path from 'path';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 
-// export const config = { api: { bodyParser: false } };
+
 
 export async function POST(req: NextRequest) {
   try {

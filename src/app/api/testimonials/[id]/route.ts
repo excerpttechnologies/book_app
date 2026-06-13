@@ -10,30 +10,14 @@ export async function PUT(
 ) {
   try {
     const { id } = await params;
-
     const session = await getServerSession(authOptions);
-
-    if (!session || session.user.role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
-
+    if (!session || session.user.role !== 'admin')
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     await connectDB();
-
-    const testimonial = await Testimonial.findByIdAndUpdate(
-      id,
-      await req.json(),
-      { new: true }
-    );
-
-    return NextResponse.json({ testimonial });
+    const t = await Testimonial.findByIdAndUpdate(id, await req.json(), { new: true });
+    return NextResponse.json({ testimonial: t });
   } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to update' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to update' }, { status: 500 });
   }
 }
 
@@ -43,27 +27,13 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-
     const session = await getServerSession(authOptions);
-
-    if (!session || session.user.role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
-
+    if (!session || session.user.role !== 'admin')
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     await connectDB();
-
     await Testimonial.findByIdAndDelete(id);
-
-    return NextResponse.json({
-      message: 'Deleted',
-    });
+    return NextResponse.json({ message: 'Deleted' });
   } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to delete' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to delete' }, { status: 500 });
   }
 }

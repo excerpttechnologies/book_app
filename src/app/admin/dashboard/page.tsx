@@ -7,7 +7,7 @@ import Link from 'next/link';
 const FILTERS = ['daily', 'monthly', 'yearly'];
 const COLORS = ['#B5451B', '#C9943A', '#2D6A4F', '#6B5CE7'];
 
-function StatCard({ icon: Icon, label, value, sub, color = '#1F3A52' }: any) {
+function StatCard({ icon: Icon, label, value, sub, color = 'var(--accent)' }: any) {
   return (
     <div className="card" style={{ padding: 20 }}>
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 12 }}>
@@ -53,7 +53,7 @@ export default function AdminDashboard() {
         <div style={{ display: 'flex', gap: 4, background: 'var(--bg-secondary)', borderRadius: 10, padding: 4 }}>
           {FILTERS.map(f => (
             <button key={f} onClick={() => setFilter(f)}
-              style={{ padding: '6px 16px', borderRadius: 8, border: 'none', cursor: 'pointer', fontSize: 13, fontWeight: 500, background: filter === f ? 'var(--surface)' : 'transparent', color: filter === f ? '#1F3A52' : 'var(--text-muted)', boxShadow: filter === f ? 'var(--shadow-sm)' : 'none', textTransform: 'capitalize' }}>
+              style={{ padding: '6px 16px', borderRadius: 8, border: 'none', cursor: 'pointer', fontSize: 13, fontWeight: 500, background: filter === f ? 'var(--surface)' : 'transparent', color: filter === f ? 'var(--accent)' : 'var(--text-muted)', boxShadow: filter === f ? 'var(--shadow-sm)' : 'none', textTransform: 'capitalize' }}>
               {f}
             </button>
           ))}
@@ -62,7 +62,7 @@ export default function AdminDashboard() {
 
       {/* Stats */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16, marginBottom: 28 }}>
-        <StatCard icon={FiShoppingBag} label="Total Orders" value={stats.totalOrders} sub={`+${stats.periodOrders} this period`} color="#1F3A52" />
+        <StatCard icon={FiShoppingBag} label="Total Orders" value={stats.totalOrders} sub={`+${stats.periodOrders} this period`} color="var(--accent)" />
         <StatCard icon={FiDollarSign} label="Total Revenue" value={`₹${(stats.totalRevenue || 0).toLocaleString()}`} sub={`₹${(stats.periodRevenue || 0).toLocaleString()} this period`} color="var(--green)" />
         <StatCard icon={FiUsers} label="Total Users" value={stats.totalUsers} color="#6B5CE7" />
         <StatCard icon={FiBook} label="Published Books" value={stats.totalBooks} color="var(--gold)" />
@@ -79,7 +79,7 @@ export default function AdminDashboard() {
               <XAxis dataKey="month" tick={{ fontSize: 11, fill: 'var(--text-muted)' }} />
               <YAxis tick={{ fontSize: 11, fill: 'var(--text-muted)' }} />
               <Tooltip contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
-              <Bar dataKey="revenue" fill="#1F3A52" radius={[4, 4, 0, 0]} name="Revenue (₹)" />
+              <Bar dataKey="revenue" fill="var(--accent)" radius={[4, 4, 0, 0]} name="Revenue (₹)" />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -94,7 +94,7 @@ export default function AdminDashboard() {
               <YAxis tick={{ fontSize: 11, fill: 'var(--text-muted)' }} />
               <Tooltip contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
               <Line type="monotone" dataKey="profit" stroke="var(--green)" strokeWidth={2} dot={false} name="Profit (₹)" />
-              <Line type="monotone" dataKey="revenue" stroke="#1F3A52" strokeWidth={2} dot={false} name="Revenue (₹)" />
+              <Line type="monotone" dataKey="revenue" stroke="var(--accent)" strokeWidth={2} dot={false} name="Revenue (₹)" />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -106,7 +106,7 @@ export default function AdminDashboard() {
         <div className="card" style={{ padding: 20 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
             <h3 style={{ fontSize: '0.95rem', fontWeight: 600, fontFamily: 'var(--font-body)' }}>Recent Orders</h3>
-            <Link href="/admin/orders" style={{ fontSize: 13, color: '#1F3A52' }}>View All</Link>
+            <Link href="/admin/orders" style={{ fontSize: 13, color: 'var(--accent)' }}>View All</Link>
           </div>
           <div className="table-wrapper">
             <table>
@@ -140,12 +140,12 @@ export default function AdminDashboard() {
         <div className="card" style={{ padding: 20 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
             <h3 style={{ fontSize: '0.95rem', fontWeight: 600, fontFamily: 'var(--font-body)' }}>Top Selling Books</h3>
-            <Link href="/admin/books" style={{ fontSize: 13, color: '#1F3A52' }}>View All</Link>
+            <Link href="/admin/books" style={{ fontSize: 13, color: 'var(--accent)' }}>View All</Link>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {topBooks.map((book: any, i: number) => (
               <div key={book._id} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <div style={{ width: 28, height: 28, borderRadius: '50%', background: ['var(--accent-light)', 'var(--gold-light)', 'var(--green-light)'][i] || 'var(--bg-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700, color: ['#1F3A52', 'var(--gold)', 'var(--green)'][i] || 'var(--text-muted)', flexShrink: 0 }}>
+                <div style={{ width: 28, height: 28, borderRadius: '50%', background: ['var(--accent-light)', 'var(--gold-light)', 'var(--green-light)'][i] || 'var(--bg-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700, color: ['var(--accent)', 'var(--gold)', 'var(--green)'][i] || 'var(--text-muted)', flexShrink: 0 }}>
                   {i + 1}
                 </div>
                 <img src={book.images?.[0]} alt="" style={{ width: 32, height: 42, objectFit: 'cover', borderRadius: 4 }} onError={e => { (e.target as HTMLImageElement).src = 'https://placehold.co/32x42/f5efe6/b5451b?text=B'; }} />

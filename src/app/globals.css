@@ -69,7 +69,7 @@ img { max-width: 100%; height: auto; }
 
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 10px 22px; background: #1F3A52; color: #fff;
+  padding: 10px 22px; background: var(--accent); color: #fff;
   border: none; border-radius: var(--radius);
   font-family: var(--font-body); font-size: 14px; font-weight: 500;
   cursor: pointer; transition: background 0.2s, transform 0.1s, box-shadow 0.2s; white-space: nowrap;
@@ -108,14 +108,14 @@ img { max-width: 100%; height: auto; }
   border-radius: 8px; font-family: var(--font-body); font-size: 14px;
   color: var(--text-primary); outline: none; transition: border-color 0.2s, box-shadow 0.2s;
 }
-.input:focus { border-color: #1F3A52; box-shadow: 0 0 0 3px var(--accent-light); }
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
 .input::placeholder { color: var(--text-muted); }
 
 .label { display: block; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-bottom: 5px; }
 
 .badge { display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 50px; font-size: 12px; font-weight: 500; }
 .badge-green { background: var(--green-light); color: var(--green); }
-.badge-red { background: var(--accent-light); color: #1F3A52; }
+.badge-red { background: var(--accent-light); color: var(--accent); }
 .badge-gold { background: var(--gold-light); color: var(--gold); }
 .badge-gray { background: var(--bg-secondary); color: var(--text-muted); }
 
@@ -154,6 +154,6 @@ tbody tr:last-child td { border-bottom: none; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @keyframes spin { to { transform: rotate(360deg); } }
 .animate-fade-in { animation: fadeIn 0.3s ease forwards; }
-.spinner { width: 20px; height: 20px; border: 2px solid var(--border); border-top-color: #1F3A52; border-radius: 50%; animation: spin 0.7s linear infinite; display: inline-block; }
+.spinner { width: 20px; height: 20px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; display: inline-block; }
 
 .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 50; display: flex; align-items: center; justify-content: center; }

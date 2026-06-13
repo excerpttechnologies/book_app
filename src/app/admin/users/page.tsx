@@ -39,9 +39,9 @@ export default function AdminUsersPage() {
       {/* Stats mini */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 14, marginBottom: 20 }}>
         {[
-          { label: 'Total Users', value: total, color: '#1F3A52' },
+          { label: 'Total Users', value: total, color: 'var(--accent)' },
           { label: 'Active', value: users.filter(u => u.status === 'active').length, color: 'var(--green)' },
-          { label: 'Blocked', value: users.filter(u => u.status === 'blocked').length, color: '#1F3A52' },
+          { label: 'Blocked', value: users.filter(u => u.status === 'blocked').length, color: 'var(--accent)' },
         ].map(s => (
           <div key={s.label} className="card" style={{ padding: '14px 16px' }}>
             <div style={{ fontSize: '1.4rem', fontWeight: 700, color: s.color }}>{s.value}</div>
@@ -90,7 +90,7 @@ export default function AdminUsersPage() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                       {user.image
                         ? <img src={user.image} alt="" style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
-                        : <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'var(--accent-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1F3A52', fontWeight: 600, fontSize: 13 }}>{user.name?.[0]}</div>}
+                        : <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'var(--accent-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', fontWeight: 600, fontSize: 13 }}>{user.name?.[0]}</div>}
                       <div>
                         <div style={{ fontWeight: 500, fontSize: 13 }}>{user.name}</div>
                         <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{user.email}</div>
@@ -106,7 +106,7 @@ export default function AdminUsersPage() {
                   <td><span className={`badge ${user.status === 'active' ? 'badge-green' : 'badge-red'}`}>{user.status}</span></td>
                   <td>
                     <button onClick={() => toggleStatus(user._id, user.status)}
-                      style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '5px 10px', borderRadius: 7, border: 'none', cursor: 'pointer', fontSize: 12, background: user.status === 'blocked' ? 'var(--green-light)' : 'var(--accent-light)', color: user.status === 'blocked' ? 'var(--green)' : '#1F3A52' }}>
+                      style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '5px 10px', borderRadius: 7, border: 'none', cursor: 'pointer', fontSize: 12, background: user.status === 'blocked' ? 'var(--green-light)' : 'var(--accent-light)', color: user.status === 'blocked' ? 'var(--green)' : 'var(--accent)' }}>
                       {user.status === 'blocked' ? <FiCheckCircle size={12} /> : <FiSlash size={12} />}
                       {user.status === 'blocked' ? 'Approve' : 'Block'}
                     </button>
@@ -119,7 +119,7 @@ export default function AdminUsersPage() {
         {total > 20 && (
           <div style={{ padding: '14px 16px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'center', gap: 8 }}>
             {[...Array(Math.ceil(total / 20))].map((_, i) => (
-              <button key={i} onClick={() => setPage(i+1)} style={{ width: 32, height: 32, borderRadius: 6, border: '1px solid', borderColor: page===i+1?'#1F3A52':'var(--border)', background: page===i+1?'#1F3A52':'var(--surface)', color: page===i+1?'#fff':'var(--text-primary)', cursor: 'pointer', fontSize: 13 }}>{i+1}</button>
+              <button key={i} onClick={() => setPage(i+1)} style={{ width: 32, height: 32, borderRadius: 6, border: '1px solid', borderColor: page===i+1?'var(--accent)':'var(--border)', background: page===i+1?'var(--accent)':'var(--surface)', color: page===i+1?'#fff':'var(--text-primary)', cursor: 'pointer', fontSize: 13 }}>{i+1}</button>
             ))}
           </div>
         )}

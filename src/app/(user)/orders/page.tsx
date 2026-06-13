@@ -12,7 +12,7 @@ const STATUS_STYLES: Record<string, { color: string; bg: string; icon: any }> = 
   processing: { color: '#6B5CE7', bg: '#EDE9FF', icon: FiClock },
   shipped: { color: '#0891B2', bg: '#E0F7FA', icon: FiTruck },
   delivered: { color: 'var(--green)', bg: 'var(--green-light)', icon: FiCheckCircle },
-  cancelled: { color: '#1F3A52', bg: 'var(--accent-light)', icon: FiClock },
+  cancelled: { color: 'var(--accent)', bg: 'var(--accent-light)', icon: FiClock },
 };
 
 function OrdersContent() {
@@ -35,7 +35,7 @@ function OrdersContent() {
       key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       amount: rpOrder.amount,
       currency: 'INR',
-      name: 'OM Spiritual',
+      name: 'Saraswati Books',
       order_id: rpOrder.id,
       prefill: { name: session?.user?.name, email: session?.user?.email },
       handler: async (response: any) => {

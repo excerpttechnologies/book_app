@@ -10,35 +10,15 @@ export async function PUT(
 ) {
   try {
     const { id } = await params;
-
     const session = await getServerSession(authOptions);
-
-    if (!session || session.user.role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
-
+    if (!session || session.user.role !== 'admin')
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     await connectDB();
-
     const body = await req.json();
-
-    if (body.adminReply) {
-      body.repliedAt = new Date();
-    }
-
-    const contact = await Contact.findByIdAndUpdate(
-      id,
-      body,
-      { new: true }
-    );
-
+    if (body.adminReply) body.repliedAt = new Date();
+    const contact = await Contact.findByIdAndUpdate(id, body, { new: true });
     return NextResponse.json({ contact });
   } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to update' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to update' }, { status: 500 });
   }
 }

@@ -64,12 +64,12 @@ function ShopContent() {
         <label className="label">Category</label>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <button onClick={() => setFilters(f => ({ ...f, category: '' }))}
-            style={{ textAlign: 'left', background: !filters.category ? 'var(--accent-light)' : 'none', color: !filters.category ? '#1F3A52' : 'var(--text-secondary)', border: 'none', cursor: 'pointer', padding: '6px 0', fontSize: 14, fontWeight: !filters.category ? 600 : 400 }}>
+            style={{ textAlign: 'left', background: !filters.category ? 'var(--accent-light)' : 'none', color: !filters.category ? 'var(--accent)' : 'var(--text-secondary)', border: 'none', cursor: 'pointer', padding: '6px 0', fontSize: 14, fontWeight: !filters.category ? 600 : 400 }}>
             All Categories
           </button>
           {CATEGORIES.map(cat => (
             <button key={cat} onClick={() => setFilters(f => ({ ...f, category: cat }))}
-              style={{ textAlign: 'left', background: filters.category === cat ? 'var(--accent-light)' : 'none', color: filters.category === cat ? '#1F3A52' : 'var(--text-secondary)', border: 'none', cursor: 'pointer', padding: '6px 0', fontSize: 14, fontWeight: filters.category === cat ? 600 : 400 }}>
+              style={{ textAlign: 'left', background: filters.category === cat ? 'var(--accent-light)' : 'none', color: filters.category === cat ? 'var(--accent)' : 'var(--text-secondary)', border: 'none', cursor: 'pointer', padding: '6px 0', fontSize: 14, fontWeight: filters.category === cat ? 600 : 400 }}>
               {cat}
             </button>
           ))}
@@ -81,12 +81,12 @@ function ShopContent() {
         <label className="label">Language</label>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <button onClick={() => setFilters(f => ({ ...f, language: '' }))}
-            style={{ textAlign: 'left', background: !filters.language ? 'var(--accent-light)' : 'none', color: !filters.language ? '#1F3A52' : 'var(--text-secondary)', border: 'none', cursor: 'pointer', padding: '6px 0', fontSize: 14 }}>
+            style={{ textAlign: 'left', background: !filters.language ? 'var(--accent-light)' : 'none', color: !filters.language ? 'var(--accent)' : 'var(--text-secondary)', border: 'none', cursor: 'pointer', padding: '6px 0', fontSize: 14 }}>
             All Languages
           </button>
           {LANGUAGES.map(lang => (
             <button key={lang} onClick={() => setFilters(f => ({ ...f, language: lang }))}
-              style={{ textAlign: 'left', background: filters.language === lang ? 'var(--accent-light)' : 'none', color: filters.language === lang ? '#1F3A52' : 'var(--text-secondary)', border: 'none', cursor: 'pointer', padding: '6px 0', fontSize: 14 }}>
+              style={{ textAlign: 'left', background: filters.language === lang ? 'var(--accent-light)' : 'none', color: filters.language === lang ? 'var(--accent)' : 'var(--text-secondary)', border: 'none', cursor: 'pointer', padding: '6px 0', fontSize: 14 }}>
               {lang}
             </button>
           ))}
@@ -163,7 +163,7 @@ function ShopContent() {
                 <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginTop: 32 }}>
                   {[...Array(Math.ceil(total / 20))].map((_, i) => (
                     <button key={i} onClick={() => setPage(i + 1)}
-                      style={{ width: 36, height: 36, borderRadius: 8, border: '1.5px solid', borderColor: page === i + 1 ? '#1F3A52' : 'var(--border)', background: page === i + 1 ? '#1F3A52' : 'var(--surface)', color: page === i + 1 ? '#fff' : 'var(--text-primary)', cursor: 'pointer', fontSize: 14 }}>
+                      style={{ width: 36, height: 36, borderRadius: 8, border: '1.5px solid', borderColor: page === i + 1 ? 'var(--accent)' : 'var(--border)', background: page === i + 1 ? 'var(--accent)' : 'var(--surface)', color: page === i + 1 ? '#fff' : 'var(--text-primary)', cursor: 'pointer', fontSize: 14 }}>
                       {i + 1}
                     </button>
                   ))}
