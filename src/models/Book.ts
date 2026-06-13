@@ -89,8 +89,9 @@ BookSchema.index(
     tags: 'text',
   },
   {
-    language_override: 'none',
+    default_language: 'none',  // ← default_language, not language_override
   }
+
 );
 
 export default mongoose.models.Book || mongoose.model<IBook>('Book', BookSchema);
