@@ -32,7 +32,7 @@ export default function OrderDetailPage() {
       doc.rect(0, 0, 210, 30, 'F');
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(18);
-      doc.text(s.invoiceName || 'Saraswati Books', 14, 18);
+      doc.text(s.invoiceName || 'OM Spiritual Books', 14, 18);
       doc.setTextColor(0, 0, 0);
       doc.setFontSize(10);
       doc.text(`Invoice: ${order.orderId}`, 14, 42);

@@ -31,7 +31,7 @@ export default function ContactPage() {
           <h2 style={{ fontSize: '1.2rem', marginBottom: 20 }}>Get in Touch</h2>
           {[
             { icon: FiPhone, label: 'Phone', value: '+91-XXXXXXXXXX', href: 'tel:+91XXXXXXXXXX' },
-            { icon: FiMail, label: 'Email', value: 'support@saraswatibooks.com', href: 'mailto:support@saraswatibooks.com' },
+            { icon: FiMail, label: 'Email', value: 'support@OMSpiritual.com', href: 'mailto:support@OMSpiritual.com' },
             { icon: FiMapPin, label: 'Address', value: 'Chennai, Tamil Nadu, India', href: '#' },
           ].map(({ icon: Icon, label, value, href }) => (
             <a key={label} href={href} style={{ display: 'flex', alignItems: 'flex-start', gap: 14, marginBottom: 20, padding: 16, background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 10, color: 'var(--text-primary)' }}>

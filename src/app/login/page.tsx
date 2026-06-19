@@ -9,7 +9,7 @@ export default function LoginPage() {
       <div style={{ width: '100%', maxWidth: 400 }}>
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
           <div style={{ fontSize: '3rem', marginBottom: 12 }}>📖</div>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', color: 'var(--accent)', marginBottom: 6 }}>Saraswati Books</h1>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', color: 'var(--accent)', marginBottom: 6 }}>OM Spiritual Books</h1>
           <p style={{ color: 'var(--text-muted)', fontSize: 15 }}>Sign in to continue shopping</p>
         </div>
         <div className="card" style={{ padding: 32 }}>

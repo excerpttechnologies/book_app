@@ -63,7 +63,7 @@ export default function CheckoutPage() {
           key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
           amount: rpOrder.amount,
           currency: 'INR',
-          name: 'Saraswati Books',
+          name: 'OM Spiritual',
           description: 'Book Purchase',
           order_id: rpOrder.id,
           prefill: { name: `${address.firstName} ${address.lastName}`, email: address.email, contact: address.phone },

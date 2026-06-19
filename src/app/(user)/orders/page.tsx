@@ -35,7 +35,7 @@ function OrdersContent() {
       key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       amount: rpOrder.amount,
       currency: 'INR',
-      name: 'Saraswati Books',
+      name: 'OM Spiritual',
       order_id: rpOrder.id,
       prefill: { name: session?.user?.name, email: session?.user?.email },
       handler: async (response: any) => {

@@ -58,7 +58,7 @@ export default function AdminInvoicesPage() {
       doc.rect(0, 0, 210, 35, 'F');
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(20);
-      doc.text(s.invoiceName || 'Saraswati Books', 14, 18);
+      doc.text(s.invoiceName || 'OM Spiritual Books', 14, 18);
       doc.setFontSize(10);
       doc.text('INVOICE', 170, 18);
       doc.setTextColor(0, 0, 0);

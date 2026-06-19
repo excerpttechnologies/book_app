@@ -55,7 +55,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <Link href="/admin/dashboard" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <span style={{ fontSize: '1.4rem' }}>📖</span>
             <div>
-              <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem', color: 'var(--accent)' }}>Saraswati</div>
+              <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem', color: 'var(--accent)' }}>OM Spiritual Books</div>
               <div style={{ fontSize: 11, color: 'var(--text-muted)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Admin Panel</div>
             </div>
           </Link>
