@@ -1,0 +1,10 @@
+{
+  "/api/testimonials/route": "app/api/testimonials/route.js",
+  "/api/books/route": "app/api/books/route.js",
+  "/api/settings/route": "app/api/settings/route.js",
+  "/api/ads/route": "app/api/ads/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/uploads/[...path]/route": "app/api/uploads/[...path]/route.js",
+  "/(user)/page": "app/(user)/page.js"
+}
