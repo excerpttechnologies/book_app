@@ -71,6 +71,14 @@
       "namedRegex": "^/api/testimonials/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/uploads/[...path]",
+      "regex": "^/api/uploads/(.+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPpath": "nxtPpath"
+      },
+      "namedRegex": "^/api/uploads/(?<nxtPpath>.+?)(?:/)?$"
+    },
+    {
       "page": "/api/users/[id]",
       "regex": "^/api/users/([^/]+?)(?:/)?$",
       "routeKeys": {

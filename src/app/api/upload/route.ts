@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'No files provided' }, { status: 400 });
     }
 
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads', folder);
+    const uploadDir = path.join(process.cwd(), 'uploads', folder);
     await mkdir(uploadDir, { recursive: true });
 
     const uploadedUrls: string[] = [];
@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
       const filePath = path.join(uploadDir, fileName);
 
       await writeFile(filePath, buffer);
-      uploadedUrls.push(`/uploads/${folder}/${fileName}`);
+      uploadedUrls.push(`/api/uploads/${folder}/${fileName}`);
     }
 
     return NextResponse.json({ urls: uploadedUrls });

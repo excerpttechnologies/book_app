@@ -70,8 +70,8 @@ export default function AdminBooksPage() {
   const removeImage = (idx: number) => setForm((f: any) => ({ ...f, images: f.images.filter((_: any, i: number) => i !== idx) }));
 
   const save = async () => {
-   if (!form.title || !form.price || !form.category || !form.description) { 
-  toast.error('Fill required fields (Title, Price, Category, Description)'); 
+   if (!form.title || !form.price || !form.category ) { 
+  toast.error('Fill required fields (Title, Price, Category)'); 
   return; 
 }
     setSaving(true);

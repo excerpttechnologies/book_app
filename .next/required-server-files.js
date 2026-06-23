@@ -113,7 +113,7 @@ self.__SERVER_FILES_MANIFEST={
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\Users\\Admin\\Downloads\\saraswati-books\\saraswati-books\\bookstore",
+    "outputFileTracingRoot": "C:\\Users\\Admin\\Downloads\\bookstore---\\bookstore---",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -316,11 +316,11 @@ self.__SERVER_FILES_MANIFEST={
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
     "turbopack": {
-      "root": "C:\\Users\\Admin\\Downloads\\saraswati-books\\saraswati-books\\bookstore"
+      "root": "C:\\Users\\Admin\\Downloads\\bookstore---\\bookstore---"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "C:\\Users\\Admin\\Downloads\\saraswati-books\\saraswati-books\\bookstore",
+  "appDir": "C:\\Users\\Admin\\Downloads\\bookstore---\\bookstore---",
   "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",

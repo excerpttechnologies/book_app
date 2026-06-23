@@ -237,14 +237,14 @@
   },
   {
     "route": "/admin/books",
-    "firstLoadUncompressedJsBytes": 604921,
+    "firstLoadUncompressedJsBytes": 604892,
     "firstLoadChunkPaths": [
       ".next\\static\\chunks\\0ix_8tvbi2ir9.js",
       ".next\\static\\chunks\\0n4z.7yu76je-.js",
       ".next\\static\\chunks\\188tp13he_u43.js",
       ".next\\static\\chunks\\12h56ktgczu1a.js",
       ".next\\static\\chunks\\0k75bffxbj3ny.js",
-      ".next\\static\\chunks\\0i3x6drrim.e5.js",
+      ".next\\static\\chunks\\016mjyplsm85-.js",
       ".next\\static\\chunks\\0ze4gu236oq96.js",
       ".next\\static\\chunks\\02.us7m76zsub.js",
       ".next\\static\\chunks\\0g6w89l1it-h3.js",

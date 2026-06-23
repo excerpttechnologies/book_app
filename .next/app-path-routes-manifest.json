@@ -40,6 +40,7 @@
   "/api/testimonials/[id]/route": "/api/testimonials/[id]",
   "/api/testimonials/route": "/api/testimonials",
   "/api/upload/route": "/api/upload",
+  "/api/uploads/[...path]/route": "/api/uploads/[...path]",
   "/api/users/[id]/route": "/api/users/[id]",
   "/api/users/route": "/api/users",
   "/api/wishlist/route": "/api/wishlist",
