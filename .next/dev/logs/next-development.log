@@ -1,8 +1,0 @@
-{"timestamp":"00:00:05.879","source":"Server","level":"LOG","message":"- Experiments (use with caution):"}
-{"timestamp":"00:00:05.880","source":"Server","level":"LOG","message":"  · serverActions"}
-{"timestamp":"00:00:05.881","source":"Server","level":"LOG","message":""}
-{"timestamp":"00:00:09.026","source":"Server","level":"LOG","message":"○ Compiling / ..."}
-{"timestamp":"00:00:24.098","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
-{"timestamp":"00:00:27.435","source":"Server","level":"LOG","message":"○ Compiling /api/ads ..."}
-{"timestamp":"00:00:44.630","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
-{"timestamp":"00:00:48.704","source":"Server","level":"LOG","message":"○ Compiling /api/uploads/[...path] ..."}
